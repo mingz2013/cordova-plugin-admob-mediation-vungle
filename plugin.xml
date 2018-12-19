@@ -67,7 +67,7 @@
 
         <!--<header-file src="src/ios/CDVDevice.h" />-->
         <!--<source-file src="src/ios/CDVDevice.m" />-->
-        <framework src="GoogleMobileAdsMediationVungle" type="podspec"/>
+        <framework src="GoogleMobileAdsMediationVungle" type="podspec" spec="~> 6.3.2.0"/>
     </platform>
 
 
