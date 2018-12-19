@@ -1,0 +1,13 @@
+cdvPluginPostBuildExtras.add({
+
+
+
+    dependencies {
+     implementation('com.vungle:publisher-sdk-android:6.3.24@aar') {
+             transitive=true
+         }
+         implementation 'com.google.ads.mediation:vungle:6.3.24.0'
+    }
+
+
+});

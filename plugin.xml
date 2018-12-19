@@ -1,0 +1,76 @@
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:rim="http://www.blackberry.com/ns/widgets"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-admob-mediation-vungle"
+        version="1.0.0">
+    <name>Admob Mediation Vungle Plugin</name>
+    <description>Cordova Admob Mediation Vungle Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova, admob, mediation, Vungle</keywords>
+    <repo>https://github.com/mingz2013/cordova-plugin-admob-mediation-vungle.git</repo>
+    <issue>https://github.com/mingz2013/cordova-plugin-admob-mediation-vungle/issues</issue>
+
+
+    <!--<preference name="APPLOVIN_SDK_KEY" value=""/>-->
+
+    <js-module src="www/AdMobMediationVungle.js" name="AdMobMediationVungle">
+        <clobbers target="AdMobMediationVungle"/>
+    </js-module>
+    <!--<js-module src="www/AdMobInterface.js" name="AdMobInterface">-->
+        <!--<clobbers target="AdMobInterface"/>-->
+    <!--</js-module>-->
+
+    <dependency id="cordova-plugin-admob" url="https://github.com/mingz2013/cordova-plugin-admob"/>
+
+    <!-- android -->
+    <platform name="android">
+        <framework src="src/android/admob-mediation-vungle.gradle" custom="true" type="gradleReference"/>
+
+        <!--<config-file target="res/xml/config.xml" parent="/*">-->
+            <!--<feature name="Device" >-->
+                <!--<param name="android-package" value="org.apache.cordova.device.Device"/>-->
+            <!--</feature>-->
+        <!--</config-file>-->
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity
+                android:name="com.vungle.warren.ui.VungleActivity"
+                android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
+                android:launchMode="singleTop"
+                android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+            <activity
+                    android:name="com.vungle.warren.ui.VungleFlexViewActivity"
+                    android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
+                    android:hardwareAccelerated="true"
+                    android:launchMode="singleTop"
+                    android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        </config-file>
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="AdMobMediationVungle">
+                <param name="android-package" value="me.mingz.cordova.admob.mediation.AdMobMediationVunglePlugin"/>
+                <param name="onload" value="true"/>
+            </feature>
+        </config-file>
+        <source-file src="src/android/AdMobMediationVunglePlugin.java" target-dir="src/me/mingz/cordova/admob/mediation" />
+
+
+    </platform>
+
+    <!-- ios -->
+    <!--<platform name="ios">-->
+        <!--<config-file target="config.xml" parent="/*">-->
+            <!--<feature name="Device">-->
+                <!--<param name="ios-package" value="CDVDevice"/>-->
+            <!--</feature>-->
+        <!--</config-file>-->
+
+        <!--<header-file src="src/ios/CDVDevice.h" />-->
+        <!--<source-file src="src/ios/CDVDevice.m" />-->
+    <!--</platform>-->
+
+
+
+
+
+</plugin>
